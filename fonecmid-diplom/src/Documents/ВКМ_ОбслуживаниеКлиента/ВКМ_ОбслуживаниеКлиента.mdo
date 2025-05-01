@@ -25,6 +25,7 @@
   <autonumbering>true</autonumbering>
   <defaultObjectForm>Document.ВКМ_ОбслуживаниеКлиента.Form.ФормаДокумента</defaultObjectForm>
   <defaultListForm>Document.ВКМ_ОбслуживаниеКлиента.Form.ФормаСписка</defaultListForm>
+  <registerRecords>AccumulationRegister.ВКМ_ВыполненныеКлиентуРаботы</registerRecords>
   <postInPrivilegedMode>true</postInPrivilegedMode>
   <unpostInPrivilegedMode>true</unpostInPrivilegedMode>
   <attributes uuid="d67ce825-cd5b-4f7b-93b4-7a8f2340d2f7">
@@ -162,15 +163,22 @@
     <fullTextSearch>Use</fullTextSearch>
     <dataHistory>Use</dataHistory>
   </attributes>
-  <forms uuid="6e8da79a-083c-469d-b9df-da529d9dede9">
-    <name>ФормаДокумента</name>
+  <attributes uuid="e9610e7e-66c9-4546-b9ca-9e3ac97dd7b0">
+    <name>ВКМ_ТелоЗапроса</name>
     <synonym>
       <key>ru</key>
-      <value>Форма документа</value>
+      <value>Тело запроса</value>
     </synonym>
-    <usePurposes>PersonalComputer</usePurposes>
-    <usePurposes>MobileDevice</usePurposes>
-  </forms>
+    <type>
+      <types>String</types>
+      <stringQualifiers/>
+    </type>
+    <minValue xsi:type="core:UndefinedValue"/>
+    <maxValue xsi:type="core:UndefinedValue"/>
+    <fillValue xsi:type="core:UndefinedValue"/>
+    <fullTextSearch>Use</fullTextSearch>
+    <dataHistory>Use</dataHistory>
+  </attributes>
   <forms uuid="7ba71a92-ac77-4897-b828-632a9df5a663">
     <name>ФормаСписка</name>
     <synonym>
@@ -180,34 +188,46 @@
     <usePurposes>PersonalComputer</usePurposes>
     <usePurposes>MobileDevice</usePurposes>
   </forms>
-  <tabularSections uuid="81c2b4b4-5df5-4203-bb5c-cf84a4d44655">
+  <forms uuid="d80d8a92-7692-40eb-9cb7-895ed0fbed03">
+    <name>ФормаДокумента</name>
+    <synonym>
+      <key>ru</key>
+      <value>Форма документа</value>
+    </synonym>
+    <usePurposes>PersonalComputer</usePurposes>
+    <usePurposes>MobileDevice</usePurposes>
+  </forms>
+  <tabularSections uuid="4016ad34-3b0a-4fbf-b1bd-f72677d76052">
     <producedTypes>
-      <objectType typeId="9a934eab-551a-4162-b167-8af43f54dcfe" valueTypeId="96260b9e-a396-495f-b009-8e4186ce4693"/>
-      <rowType typeId="3611c549-fb24-4dc5-afb2-00dc0f2384de" valueTypeId="cd1c3f37-eb5b-4218-afd4-876398ca681f"/>
+      <objectType typeId="92204209-327a-436e-81ea-0fff6aa30ba9" valueTypeId="da878854-abad-4b59-9578-f6b4f7ccf00c"/>
+      <rowType typeId="a2297881-c532-440d-a26c-29c33a2a6421" valueTypeId="8e5f05d8-e0cb-4a9a-9e05-484594bd8acf"/>
     </producedTypes>
     <name>ВКМ_ВыполненныеРаботы</name>
     <synonym>
       <key>ru</key>
       <value>Выполненные работы</value>
     </synonym>
-    <attributes uuid="dc2337fc-5c45-4f14-96fc-1b27829c2644">
+    <attributes uuid="473db1eb-655d-4584-b038-fc2dfe899fb9">
       <name>ВКМ_ОписаниеРабот</name>
       <synonym>
         <key>ru</key>
         <value>Описание работ</value>
       </synonym>
       <type>
-        <types>String</types>
-        <stringQualifiers>
-          <length>250</length>
-        </stringQualifiers>
+        <types>CatalogRef.Номенклатура</types>
       </type>
       <minValue xsi:type="core:UndefinedValue"/>
       <maxValue xsi:type="core:UndefinedValue"/>
+      <choiceParameters>
+        <name>Отбор.ВидНоменклатуры</name>
+        <value xsi:type="core:ReferenceValue">
+          <value>Enum.ВидыНоменклатуры.EnumValue.Услуга</value>
+        </value>
+      </choiceParameters>
       <dataHistory>Use</dataHistory>
       <fullTextSearch>Use</fullTextSearch>
     </attributes>
-    <attributes uuid="b6b37fec-7bab-44fe-9b71-0b15ffeea1cc">
+    <attributes uuid="d03d980c-d676-4edb-b881-ba9b3ae46889">
       <name>ВКМ_ФактическиПотраченоЧасов</name>
       <synonym>
         <key>ru</key>
@@ -224,7 +244,7 @@
       <dataHistory>Use</dataHistory>
       <fullTextSearch>Use</fullTextSearch>
     </attributes>
-    <attributes uuid="e0618da6-50d1-426e-a73b-7fc258667c59">
+    <attributes uuid="f08e2044-04e2-4ab8-b969-93bc5bd90e2c">
       <name>ВКМ_ЧасыКОплатеКлиенту</name>
       <synonym>
         <key>ru</key>
